@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <Background />
+      <Ghost />
       <Container>
         <Book />
       </Container>
-      <Ghost />
     </div>
   )
 }
