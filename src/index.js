@@ -1,13 +1,15 @@
+import { CssBaseline } from '@material-ui/core'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
-import App from './containers/App/App'
-import * as serviceWorkerRegistration from './serviceWorkerRegistration'
-import reportWebVitals from './reportWebVitals'
 import { BrowserRouter as Router } from "react-router-dom"
+import App from './containers/App/App'
+import './index.css'
+import reportWebVitals from './reportWebVitals'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
 ReactDOM.render(
   <React.StrictMode>
+    <CssBaseline />
     <Router>
       <App />
     </Router>
