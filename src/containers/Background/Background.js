@@ -1,7 +1,5 @@
 import React from 'react'
 import './Background.scss'
-import PropTypes from 'prop-types'
-
 function Background(props) {
   return (
     <div className="thunder">

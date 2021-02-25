@@ -1,15 +1,17 @@
+import { Container } from '@material-ui/core'
 import React from 'react'
-import './App.css'
+import Ghost from '../../components/Ghost/Ghost'
 import Background from '../Background/Background'
-import { Paper } from '@material-ui/core'
+import './App.css'
 
 function App() {
   return (
     <div className="App">
       <Background>
-        <Paper>
-          ABC
-        </Paper>
+        <Container>
+
+        </Container>
+        <Ghost />
       </Background>
     </div>
   )
