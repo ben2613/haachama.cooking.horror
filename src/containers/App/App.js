@@ -2,8 +2,9 @@ import { Container } from '@material-ui/core'
 import Phone from 'components/Phone/Phone'
 import Book from 'containers/Book/Book'
 import ContentTable from 'containers/ContentTable/ContentTable'
+import WhoAmI from 'pages/WhoAmI'
 import React, { useEffect, useRef, useState } from 'react'
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
+import { Link, Route, Switch, useHistory, useLocation } from 'react-router-dom'
 import Ghost from '../../components/Ghost/Ghost'
 import Background from '../Background/Background'
 import './App.css'
@@ -11,30 +12,32 @@ import './App.css'
 
 let LeftSide = (
   <Switch>
-  <Route path="/ct">
-    <ContentTable />
-  </Route>
-  <Route path="/a/">
-    Left side of A
-  </Route>
-  <Route path="/whoami/">
-    Left side of whoami
-  </Route>
-</Switch>
+    <Route path="/ct">
+      <ContentTable />
+    </Route>
+    <Route path="/a/">
+      Left side of A
+    </Route>
+    <Route>
+      <Link to="/ct">
+        {"<Erase the question>"}
+      </Link>
+    </Route>
+  </Switch>
 )
 
 let RightSide = (
   <Switch>
-  <Route path="/ct">
-    <ContentTable />
+    <Route path="/ct">
+      {"<- WRITE YOUR QUESTION"}
+    </Route>
+    <Route path="/a/">
+      ABCDEFAAAAAA
   </Route>
-  <Route path="/a/">
-    ABCDEFAAAAAA
-  </Route>
-  <Route path="/whoami/">
-    whoami
-  </Route>
-</Switch>
+    <Route path="/whoami/">
+      <WhoAmI />
+    </Route>
+  </Switch>
 )
 
 function App() {
@@ -68,7 +71,7 @@ function App() {
   }, [location, lastLocation])
   return (
     <div className="App">
-      <Background onClick={() => {setBookOpen(false);history.push('/')}} />
+      <Background onClick={() => { setBookOpen(false); history.push('/') }} />
       <Ghost />
       <Container>
         <Book bookOpen={bookOpen} handleClick={() => { setBookOpen(true); if (location.pathname === '/') { history.push('/ct') } }} left={LeftSide} bookFlip={bookFlip}>

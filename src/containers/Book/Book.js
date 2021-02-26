@@ -33,7 +33,7 @@ function Book({ bookOpen,
         <Box className="content left" lineHeight="1.465em" textAlign="left" paddingLeft="1em" paddingTop="3em" visibility={bookOpen ? "visible" : "hidden"}>
           {bookFlip?null:left}
         </Box>
-        <Box className="content" lineHeight="1.465em" textAlign="left" paddingLeft="1em" paddingTop="3em" visibility={bookOpen ? "visible" : "hidden"}>
+        <Box className={"content right " + (bookFlip ? "active" : "")} lineHeight="1.465em" textAlign="left" paddingLeft="1em" paddingTop="3em" visibility={bookOpen ? "visible" : "hidden"}>
           {bookFlip?null:children}
         </Box>
       </div>
