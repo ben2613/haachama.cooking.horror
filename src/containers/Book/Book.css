@@ -28,6 +28,7 @@
 .content.left {
   left: -350px;
   transform-origin: right center;
+  transform: rotateY(180deg);
 }
 
 .front,
