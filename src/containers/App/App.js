@@ -13,7 +13,9 @@ function App() {
       <Background onClick={()=>setBookOpen(false)} />
       <Ghost />
       <Container>
-        <Book bookOpen={bookOpen} handleClick={()=>setBookOpen(true)} />
+        <Book bookOpen={bookOpen} handleClick={()=>setBookOpen(true)} left={"ABCDEFTGH"}>
+          Test
+        </Book>
       </Container>
     </div>
   )

@@ -1,6 +1,7 @@
 @mixin size($size) {
   width: $size;
   height: $size;
+  min-width: 800px;
 }
 
 @mixin abs-pos {

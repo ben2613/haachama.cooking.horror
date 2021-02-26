@@ -12,9 +12,10 @@
   height: 500px;
   cursor: pointer;
   backface-visibility: visible;
+  font-family: 'Architects Daughter', cursive;
 }
 
-.front, .back, .page1, .page2, .page3, .page4, .page5, .page6 {
+.front, .back, .page1, .page2, .page3, .page4, .page5, .page6, .content {
   transform-style: preserve-3d;
   position: absolute;
   width: 350px;
@@ -23,6 +24,10 @@
   left: 0;
   transform-origin: left center;
   transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+}
+.content.left {
+  left: -350px;
+  transform-origin: right center;
 }
 
 .front,
@@ -82,4 +87,13 @@
 
 .book.open .back {
   transform: rotateY(0deg) scale(1.1);
+}
+
+.book.open .content {
+  display: block;
+  transform: rotateY(-25deg) scale(1.1);
+}
+.book.open .content.left {
+  display: block;
+  transform: rotateY(25deg) scale(1.1);
 }
