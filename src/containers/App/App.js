@@ -1,4 +1,5 @@
 import { Container } from '@material-ui/core'
+import JumpScare from 'components/JumpScare/JumpScare'
 
 import Phone from 'components/Phone/Phone'
 import Book from 'containers/Book/Book'
@@ -92,6 +93,11 @@ function App() {
     if (location.pathname === '/') {
       setBookOpen(false)
     }
+    if (location.pathname === '/haachamachama') {
+      setTimeout(()=>{
+        history.push('/end')
+      }, 4000)
+    }
     // if go from / go to book close, no effect
     if (lastLocation.current === '/' || location.pathname === '/') {
       lastLocation.current = location.pathname
@@ -101,7 +107,7 @@ function App() {
     lastLocation.current = location.pathname
     return () => {
     }
-  }, [location, lastLocation])
+  }, [location, lastLocation, history])
   const [bgmPlaying, setBgmPlaying] = useState("STOPPED")
   return (
     <div className="App">
@@ -116,6 +122,9 @@ function App() {
         </Book>
         <Phone />
       </Container>
+      <Route path="/end">
+        <JumpScare />
+      </Route>
     </div>
   )
 }
