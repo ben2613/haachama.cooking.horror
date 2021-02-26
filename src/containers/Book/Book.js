@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import './Book.css'
 
 function Book(props) {
-  const [bookOpen, setBookOpen] = useState(false)
-  function handleClick() {
-    setBookOpen(true)
-  }
   return (
-    <div className="bookContainer" onClick={handleClick}>
-      <div className={"book " + (bookOpen ? 'open' : '')}>
+    <div className="bookContainer" onClick={props.handleClick}>
+      <div className={"book " + (props.bookOpen ? 'open' : '')}>
         <div className="back"></div>
         <div className="page6"></div>
         <div className="page5"></div>
@@ -25,7 +21,8 @@ function Book(props) {
 }
 
 Book.propTypes = {
-
+  bookOpen: PropTypes.bool,
+  handleClick: PropTypes.func
 }
 
 export default Book
