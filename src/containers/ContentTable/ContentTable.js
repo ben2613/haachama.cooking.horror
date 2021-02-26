@@ -9,7 +9,12 @@ export default function ContentTable({
   const quesetionArr = [
     ["/whoami", "Who are you"],
     ["/whyareyouhere", "Why are you here?"],
-    ["/whathaveyoumade","What have you made?"]
+    ["/whathaveyoumade","What have you made?"],
+    ["/whathaveyoudone","What have you done to HoloEN members!?"],
+    ["/givethembackyoumonster", "Give Them Back you monster!!"],
+    ["/what", "What?"],
+    ["/howandwhat", "How do I unseal you? What happens after that?"],
+    ["/haachamachama", "HAACHAMA CHAMA"]
   ]
   return (
     <div>

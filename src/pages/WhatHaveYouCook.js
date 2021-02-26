@@ -8,7 +8,7 @@ export default function WhatHaveYouCook() {
       <span style={{color:"#5c4874"}}>TAKO</span> and
       <span style={{color:"#166ca2"}}>SHARK</span>!
       <p style={{fontSize:"3rem",lineHeight:"normal"}}>
-        NOBODY GOT HURT
+        NO ONE GOT HURT
       </p>
     </div>
   )

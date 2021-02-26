@@ -3,7 +3,12 @@ import { Container } from '@material-ui/core'
 import Phone from 'components/Phone/Phone'
 import Book from 'containers/Book/Book'
 import ContentTable from 'containers/ContentTable/ContentTable'
+import GiveThemBack from 'pages/GiveThemBack'
+import HAACHAMACHAMA from 'pages/HAACHAMACHAMA'
+import HowAndWhat from 'pages/HowAndWhat'
+import What from 'pages/What'
 import WhatHaveYouCook from 'pages/WhatHaveYouCook'
+import WhatHaveYouDoneToEN from 'pages/WhatHaveYouDoneToEN'
 import WhoAmI from 'pages/WhoAmI'
 import WhyAreYouHere from 'pages/WhyAreYouHere'
 import React, { useEffect, useRef, useState } from 'react'
@@ -36,7 +41,7 @@ function App() {
   let RightSide = (
     <Switch>
       <Route path="/ct">
-        {"<- WRITE YOUR QUESTION"}
+        {"<- ASK ME QUESTION"}
       </Route>
       <Route path="/a/">
         ABCDEFAAAAAA
@@ -49,6 +54,24 @@ function App() {
       </Route>
       <Route path="/whathaveyoumade">
         <WhatHaveYouCook />
+      </Route>
+      <Route path="/whathaveyoudone">
+        <WhatHaveYouDoneToEN />
+      </Route>
+      <Route path="/givethembackyoumonster">
+        <GiveThemBack />
+      </Route>
+      <Route path="/what">
+        <What />
+      </Route>
+      <Route path="/givethembackyoumonster">
+        <GiveThemBack />
+      </Route>
+      <Route path="/howandwhat">
+        <HowAndWhat />
+      </Route>
+      <Route path="/haachamachama">
+        <HAACHAMACHAMA />
       </Route>
     </Switch>
   )
