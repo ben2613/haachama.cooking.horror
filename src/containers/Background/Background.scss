@@ -2,6 +2,7 @@
   width: $size;
   height: $size;
   min-width: 800px;
+  overflow-y: hidden;
 }
 
 @mixin abs-pos {
