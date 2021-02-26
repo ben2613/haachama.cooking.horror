@@ -15,7 +15,7 @@
   font-family: 'Architects Daughter', cursive;
 }
 
-.front, .back, .page1, .page2, .page3, .page4, .page5, .page6, .content {
+.front, .back, .page1, .page2, .page3, .page4, .page5, .page6, .content, .pageAnimation {
   transform-style: preserve-3d;
   position: absolute;
   width: 350px;
@@ -25,6 +25,11 @@
   transform-origin: left center;
   transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
 }
+
+.pageAnimation {
+  transition: all 0s;
+}
+
 .content.left {
   left: -350px;
   transform-origin: right center;
@@ -47,7 +52,7 @@
   border-top-right-radius: .5em;
 } */
 
-.page1, .page2, .page3, .page4, .page5, .page6 {
+.page1, .page2, .page3, .page4, .page5, .page6, .pageAnimation {
   background-image: url('./paper.jpg');
   background-size: contain;
 }
@@ -100,6 +105,11 @@
   transform: rotateY(25deg) scale(1.1);
 }
 
+.pageAnimation.active {
+  transform: rotateY(-154deg) scale(1.1);
+  box-shadow: 0 1em 3em 0 rgba(0, 0, 0, .2);
+  transition: transform .5s ease-in-out, box-shadow .35s ease-in-out;
+}
 
 .drop {
   width: 1em; height: 1em;
