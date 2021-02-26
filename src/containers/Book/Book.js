@@ -1,6 +1,7 @@
-import { Box, Button } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Book.scss'
 
 
@@ -8,8 +9,7 @@ function Book({ bookOpen,
   handleClick,
   children,
   left,
-  bookFlip,
-  handleLinkUpdate }) {
+  bookFlip }) {
   return (
     <div className="bookContainer" onClick={handleClick}>
       <div className={"book " + (bookOpen ? 'open' : '')}>
@@ -35,7 +35,6 @@ function Book({ bookOpen,
         </Box>
         <Box className="content" lineHeight="1.465em" textAlign="left" paddingLeft="1em" paddingTop="3em" visibility={bookOpen ? "visible" : "hidden"}>
           {children}
-          <Button onClick={handleLinkUpdate}>ABC</Button>
         </Box>
       </div>
     </div>
@@ -48,7 +47,6 @@ Book.propTypes = {
   children: PropTypes.node,
   left: PropTypes.node,
   bookFlip: PropTypes.bool,
-  handleLinkUpdate: PropTypes.func,
 }
 
 export default Book
