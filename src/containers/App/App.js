@@ -1,4 +1,5 @@
 import { Container } from '@material-ui/core'
+
 import Phone from 'components/Phone/Phone'
 import Book from 'containers/Book/Book'
 import ContentTable from 'containers/ContentTable/ContentTable'
@@ -7,18 +8,19 @@ import WhoAmI from 'pages/WhoAmI'
 import WhyAreYouHere from 'pages/WhyAreYouHere'
 import React, { useEffect, useRef, useState } from 'react'
 import { Link, Route, Switch, useHistory, useLocation } from 'react-router-dom'
+import ReactSound from 'react-sound'
 import Ghost from '../../components/Ghost/Ghost'
 import Background from '../Background/Background'
+import bgm from './439509__ethanchase7744__freaky-ambience.mp3'
+
 import './App.css'
-
-
 
 function App() {
   const [count, setCount] = useState(0)
   let LeftSide = (
     <Switch>
       <Route path="/ct">
-        <ContentTable current={count} setCurrent={setCount}/>
+        <ContentTable current={count} setCurrent={setCount} />
       </Route>
       <Route path="/a/">
         Left side of A
@@ -63,8 +65,6 @@ function App() {
     }, 600)
   }
   useEffect(() => {
-    console.log(lastLocation.current)
-    console.log(location.pathname)
     // if distination is root / book close
     if (location.pathname === '/') {
       setBookOpen(false)
@@ -79,12 +79,16 @@ function App() {
     return () => {
     }
   }, [location, lastLocation])
+  const [bgmPlaying, setBgmPlaying] = useState("STOPPED")
   return (
     <div className="App">
+      <ReactSound url={bgm} 
+// @ts-ignore
+      playStatus={bgmPlaying} autoLoad={true} loop={true}></ReactSound>
       <Background onClick={() => { setBookOpen(false); history.push('/') }} />
       <Ghost />
       <Container>
-        <Book bookOpen={bookOpen} handleClick={() => { setBookOpen(true); if (location.pathname === '/') { history.push('/ct') } }} left={LeftSide} bookFlip={bookFlip}>
+        <Book bookOpen={bookOpen} handleClick={() => { setBgmPlaying("PLAYING");setBookOpen(true); if (location.pathname === '/') { history.push('/ct') } }} left={LeftSide} bookFlip={bookFlip}>
           {RightSide}
         </Book>
         <Phone />
