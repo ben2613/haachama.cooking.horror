@@ -31,10 +31,10 @@ function Book({ bookOpen,
           </Box>
         </div>
         <Box className="content left" lineHeight="1.465em" textAlign="left" paddingLeft="1em" paddingTop="3em" visibility={bookOpen ? "visible" : "hidden"}>
-          {left}
+          {bookFlip?null:left}
         </Box>
         <Box className="content" lineHeight="1.465em" textAlign="left" paddingLeft="1em" paddingTop="3em" visibility={bookOpen ? "visible" : "hidden"}>
-          {children}
+          {bookFlip?null:children}
         </Box>
       </div>
     </div>
@@ -44,8 +44,8 @@ function Book({ bookOpen,
 Book.propTypes = {
   bookOpen: PropTypes.bool,
   handleClick: PropTypes.func,
-  children: PropTypes.node,
-  left: PropTypes.node,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
+  left: PropTypes.oneOfType([PropTypes.element, PropTypes.node]),
   bookFlip: PropTypes.bool,
 }
 

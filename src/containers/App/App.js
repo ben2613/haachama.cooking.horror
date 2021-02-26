@@ -1,11 +1,41 @@
 import { Container } from '@material-ui/core'
 import Phone from 'components/Phone/Phone'
 import Book from 'containers/Book/Book'
+import ContentTable from 'containers/ContentTable/ContentTable'
 import React, { useEffect, useRef, useState } from 'react'
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
 import Ghost from '../../components/Ghost/Ghost'
 import Background from '../Background/Background'
 import './App.css'
+
+
+let LeftSide = (
+  <Switch>
+  <Route path="/ct">
+    <ContentTable />
+  </Route>
+  <Route path="/a/">
+    Left side of A
+  </Route>
+  <Route path="/whoami/">
+    Left side of whoami
+  </Route>
+</Switch>
+)
+
+let RightSide = (
+  <Switch>
+  <Route path="/ct">
+    <ContentTable />
+  </Route>
+  <Route path="/a/">
+    ABCDEFAAAAAA
+  </Route>
+  <Route path="/whoami/">
+    whoami
+  </Route>
+</Switch>
+)
 
 function App() {
   const location = useLocation()
@@ -17,7 +47,7 @@ function App() {
     setBookFlip(true)
     setTimeout(() => {
       setBookFlip(false)
-    }, 1000)
+    }, 600)
   }
   useEffect(() => {
     console.log(lastLocation.current)
@@ -41,15 +71,8 @@ function App() {
       <Background onClick={() => {setBookOpen(false);history.push('/')}} />
       <Ghost />
       <Container>
-        <Book bookOpen={bookOpen} handleClick={() => { setBookOpen(true); if (location.pathname === '/') { history.push('/ct') } }} left={"ABCDEFTGH"} bookFlip={bookFlip}>
-          <Switch>
-            <Route path="/ct" exact={true}>
-              
-            </Route>
-            <Route path="/a/">
-              ABCDEFAAAAAA
-            </Route>
-          </Switch>
+        <Book bookOpen={bookOpen} handleClick={() => { setBookOpen(true); if (location.pathname === '/') { history.push('/ct') } }} left={LeftSide} bookFlip={bookFlip}>
+          {RightSide}
         </Book>
         <Phone />
       </Container>
