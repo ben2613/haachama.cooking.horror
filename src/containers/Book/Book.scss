@@ -28,7 +28,7 @@
 .content.left {
   left: -350px;
   transform-origin: right center;
-  transform: rotateY(180deg);
+  transform: rotateY(185deg);
 }
 
 .front,
@@ -102,11 +102,11 @@
 
 
 .drop {
-  width: .5em; height: .5em;
+  width: 1em; height: 1em;
   border-radius: 0 100% 100% 100%;
   background-color: currentColor;
   position: absolute;
-  top: 67%;
+  top: 65%;
   animation: drop 6s infinite both;
   color: rgb(138,3,3);
 
